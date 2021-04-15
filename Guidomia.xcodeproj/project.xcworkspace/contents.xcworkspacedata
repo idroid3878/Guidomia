@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:mycarapp.xcodeproj">
+      location = "self:/Users/dev1/Desktop/bell_github_setup/mycarapp/mycarapp/Guidomia.xcodeproj">
    </FileRef>
 </Workspace>

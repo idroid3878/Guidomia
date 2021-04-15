@@ -9,22 +9,24 @@
 /* Begin PBXBuildFile section */
 		5A59AAC92628C4A100437CCC /* GuidomiaAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A59AAC62628C4A100437CCC /* GuidomiaAppDelegate.swift */; };
 		5A59AACB2628C4A100437CCC /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A59AAC82628C4A100437CCC /* SceneDelegate.swift */; };
-		5A59AACE2628C4AE00437CCC /* GuidomiaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A59AACD2628C4AE00437CCC /* GuidomiaViewController.swift */; };
+		5A59AACE2628C4AE00437CCC /* GuidomiaTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A59AACD2628C4AE00437CCC /* GuidomiaTableViewController.swift */; };
 		5A59AAD72628C6FC00437CCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5A59AAD22628C6FC00437CCC /* Assets.xcassets */; };
 		5A59AAD82628C6FC00437CCC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59AAD32628C6FC00437CCC /* LaunchScreen.storyboard */; };
 		5A59AAD92628C6FC00437CCC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5A59AAD52628C6FC00437CCC /* Main.storyboard */; };
+		5A59AADD2628DEA900437CCC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5A59AADC2628DEA900437CCC /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5A59AAAD262895E600437CCC /* mycarapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = mycarapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		5A59AAAD262895E600437CCC /* Guidomia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidomia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5A59AAC62628C4A100437CCC /* GuidomiaAppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidomiaAppDelegate.swift; sourceTree = "<group>"; };
 		5A59AAC82628C4A100437CCC /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		5A59AACD2628C4AE00437CCC /* GuidomiaViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidomiaViewController.swift; sourceTree = "<group>"; };
+		5A59AACD2628C4AE00437CCC /* GuidomiaTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GuidomiaTableViewController.swift; sourceTree = "<group>"; };
 		5A59AAD22628C6FC00437CCC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5A59AAD42628C6FC00437CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		5A59AAD62628C6FC00437CCC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		5A59AADA2628C73E00437CCC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		5A59AADB2628C73E00437CCC /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
+		5A59AADC2628DEA900437CCC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = Guidomia/Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,7 +43,7 @@
 		5A59AAA4262895E600437CCC = {
 			isa = PBXGroup;
 			children = (
-				5A59AAAF262895E600437CCC /* mycarapp */,
+				5A59AAAF262895E600437CCC /* Guidomia */,
 				5A59AAAE262895E600437CCC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -49,19 +51,20 @@
 		5A59AAAE262895E600437CCC /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				5A59AAAD262895E600437CCC /* mycarapp.app */,
+				5A59AAAD262895E600437CCC /* Guidomia.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		5A59AAAF262895E600437CCC /* mycarapp */ = {
+		5A59AAAF262895E600437CCC /* Guidomia */ = {
 			isa = PBXGroup;
 			children = (
+				5A59AADC2628DEA900437CCC /* Info.plist */,
 				5A59AAC52628C4A100437CCC /* App */,
 				5A59AAD12628C6FC00437CCC /* Assets */,
 				5A59AACC2628C4AE00437CCC /* Controller */,
 			);
-			path = mycarapp;
+			path = Guidomia;
 			sourceTree = "<group>";
 		};
 		5A59AAC52628C4A100437CCC /* App */ = {
@@ -76,7 +79,7 @@
 		5A59AACC2628C4AE00437CCC /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				5A59AACD2628C4AE00437CCC /* GuidomiaViewController.swift */,
+				5A59AACD2628C4AE00437CCC /* GuidomiaTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -94,9 +97,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		5A59AAAC262895E600437CCC /* mycarapp */ = {
+		5A59AAAC262895E600437CCC /* Guidomia */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5A59AAC1262895E800437CCC /* Build configuration list for PBXNativeTarget "mycarapp" */;
+			buildConfigurationList = 5A59AAC1262895E800437CCC /* Build configuration list for PBXNativeTarget "Guidomia" */;
 			buildPhases = (
 				5A59AAA9262895E600437CCC /* Sources */,
 				5A59AAAA262895E600437CCC /* Frameworks */,
@@ -106,9 +109,9 @@
 			);
 			dependencies = (
 			);
-			name = mycarapp;
+			name = Guidomia;
 			productName = mycarapp;
-			productReference = 5A59AAAD262895E600437CCC /* mycarapp.app */;
+			productReference = 5A59AAAD262895E600437CCC /* Guidomia.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -126,7 +129,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 5A59AAA8262895E600437CCC /* Build configuration list for PBXProject "mycarapp" */;
+			buildConfigurationList = 5A59AAA8262895E600437CCC /* Build configuration list for PBXProject "Guidomia" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -140,7 +143,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				5A59AAAC262895E600437CCC /* mycarapp */,
+				5A59AAAC262895E600437CCC /* Guidomia */,
 			);
 		};
 /* End PBXProject section */
@@ -150,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A59AADD2628DEA900437CCC /* Info.plist in Resources */,
 				5A59AAD92628C6FC00437CCC /* Main.storyboard in Resources */,
 				5A59AAD72628C6FC00437CCC /* Assets.xcassets in Resources */,
 				5A59AAD82628C6FC00437CCC /* LaunchScreen.storyboard in Resources */,
@@ -163,7 +167,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5A59AACE2628C4AE00437CCC /* GuidomiaViewController.swift in Sources */,
+				5A59AACE2628C4AE00437CCC /* GuidomiaTableViewController.swift in Sources */,
 				5A59AAC92628C4A100437CCC /* GuidomiaAppDelegate.swift in Sources */,
 				5A59AACB2628C4A100437CCC /* SceneDelegate.swift in Sources */,
 			);
@@ -315,12 +319,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TQ4FR5VBF;
-				INFOPLIST_FILE = mycarapp/Info.plist;
+				INFOPLIST_FILE = Guidomia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonnguyen.mycarapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonnguyen.Guidomia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -333,12 +337,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 5TQ4FR5VBF;
-				INFOPLIST_FILE = mycarapp/Info.plist;
+				INFOPLIST_FILE = Guidomia/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.sonnguyen.mycarapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.sonnguyen.Guidomia;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -348,7 +352,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		5A59AAA8262895E600437CCC /* Build configuration list for PBXProject "mycarapp" */ = {
+		5A59AAA8262895E600437CCC /* Build configuration list for PBXProject "Guidomia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A59AABF262895E800437CCC /* Debug */,
@@ -357,7 +361,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5A59AAC1262895E800437CCC /* Build configuration list for PBXNativeTarget "mycarapp" */ = {
+		5A59AAC1262895E800437CCC /* Build configuration list for PBXNativeTarget "Guidomia" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				5A59AAC2262895E800437CCC /* Debug */,
