@@ -8,6 +8,17 @@
 
 import UIKit
 
+struct Car: Decodable
+{
+    let consList: [String]
+    let customerPrice: Int
+    let make: String
+    let marketPrice: Int
+    let model: String
+    let prosList: [String]
+    let rating: Int
+}
+
 class ViewController:  UITableViewController {
     
     var jsonText = """
