@@ -135,20 +135,12 @@
 			path = Controller;
 			sourceTree = "<group>";
 		};
-		BF288EAE2402A21B00CF0B1F /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		FE8193F60A5388D7B5CCBB32 /* Guido */ = {
 			isa = PBXGroup;
 			children = (
 				4C7C40427506EB64F04E5687 /* App */,
 				B25EB762955DFAD08CD4A09B /* Assets */,
 				BF288EAD2402A20500CF0B1F /* Controller */,
-				BF288EAE2402A21B00CF0B1F /* Model */,
 			);
 			path = Guido;
 			sourceTree = "<group>";
