@@ -46,7 +46,26 @@ class GuidomiaTableViewController: UITableViewController {
     }
     
     func readJsonFromTextFile() -> Void {
-        // read file
+        if let path = Bundle.main.path(forResource: "car_list", ofType: "json") {
+            do {
+                let thetext = try String(contentsOfFile: path, encoding: .utf8)
+                print("text=\(thetext)")
+                if let data = thetext.data(using: .utf8) {
+                    if let cars = try? JSONDecoder().decode([Car].self, from: data)  {
+                        carlist = cars
+                    }
+                    else {
+                        readJsonFromStringVar() // fall back to string var
+                    }
+                }
+            } catch let error {
+                print("file read unsuccessful: \(error.localizedDescription)")
+                readJsonFromStringVar()
+            }
+        }
+        else {
+            readJsonFromStringVar()
+        }
     }
     
     func extractJsonInfo(fromFile ReadFromFile: Bool) -> Void {
@@ -59,7 +78,8 @@ class GuidomiaTableViewController: UITableViewController {
     }
     
     override func viewDidLoad() {
-        extractJsonInfo(fromFile: false)
+        extractJsonInfo(fromFile: true)
+        //readJsonFromTextFile()
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
