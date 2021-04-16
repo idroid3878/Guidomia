@@ -79,9 +79,25 @@ class GuidomiaTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         extractJsonInfo(fromFile: true)
-        //readJsonFromTextFile()
         tableView.estimatedRowHeight = 150.0
         tableView.rowHeight = UITableView.automaticDimension
+        
+        self.navigationController?.navigationBar.barTintColor = UIColor.init(rgb: 0xFC6016) //orange
+        self.navigationController?.navigationBar.tintColor = UIColor.black
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor:UIColor.black]
+        navigationController?.navigationBar.isHidden = false
+        
+        let barbt: UIButton = UIButton(type: UIButton.ButtonType.custom)
+        barbt.setImage(UIImage(named: "rightbarbutton"), for: UIControl.State.normal)
+        barbt.addTarget(self, action: #selector(myRightSideBarButtonItemTapped), for: UIControl.Event.touchUpInside)
+        let rightbarbt = UIBarButtonItem(customView: barbt)
+        
+        self.navigationItem.rightBarButtonItem = rightbarbt
+    }
+    
+    @objc func myRightSideBarButtonItemTapped(_ sender: UIBarButtonItem!)
+    {
+        print("myRightSideBarButtonItemTapped")
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -138,7 +154,24 @@ class GuidomiaTableViewController: UITableViewController {
         }
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "sequeToDetail") {
+            print("")
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("")
+        if indexPath.row == 0 || indexPath.row == 1 {
+            print("")
+        }
+        else {
+            self.performSegue(withIdentifier: "sequeToDetail", sender: self)
+        }
+    }
+}
+
+extension UIColor {
+    convenience init(rgb: UInt) {
+       self.init(red: CGFloat((rgb & 0xFF0000) >> 16) / 255.0, green: CGFloat((rgb & 0x00FF00) >> 8) / 255.0, blue: CGFloat(rgb & 0x0000FF) / 255.0, alpha: CGFloat(1.0))
     }
 }
