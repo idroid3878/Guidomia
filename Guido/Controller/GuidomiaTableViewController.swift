@@ -98,7 +98,7 @@ class GuidomiaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carlist.count + 2
+        return carlist.count + 7 // 2
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -112,9 +112,9 @@ class GuidomiaTableViewController: UITableViewController {
              return cell2
         }
         else {
-            let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
-            if indexPath.row > 1 && indexPath.row < carlist.count + 2 {
             
+            if indexPath.row > 1 && indexPath.row < carlist.count + 2 {
+                let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
                 let current_idx=indexPath.row-2
                 let car_cell = carlist[current_idx]
             
@@ -122,9 +122,19 @@ class GuidomiaTableViewController: UITableViewController {
                 cell2.carpicture?.image = UIImage(named: car_cell.model)
                 let customerprice=String(car_cell.customerPrice)
 
-                cell2.customerprice.text = "$" + " " + customerprice
+                cell2.customerprice.text = "$" + customerprice
+                return cell2
             }
-            return cell2
+            else {
+                let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
+                
+                cell2.carbrand.text = "Pontiac Fiero"
+                cell2.carpicture?.image = UIImage(named: "carpix")
+
+                cell2.customerprice.text = "$500"
+                return cell2
+            }
+            
         }
     }
 
