@@ -2,7 +2,7 @@
 //  GuidomiaTests.swift
 //  GuidomiaTests
 //
-//  Created by dev1 on 2021-04-15.
+//  Created by sonnguyen on 2021-04-15.
 //
 
 import XCTest

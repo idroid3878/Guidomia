@@ -13,6 +13,8 @@
 		5A0D415C2627B807003FC0CF /* GuidomiaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D415B2627B807003FC0CF /* GuidomiaUITests.swift */; };
 		5A0D416A2627B823003FC0CF /* GuidomiaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A0D41692627B823003FC0CF /* GuidomiaTests.swift */; };
 		5A7FFB9B2629536E00EEB7E2 /* GuidoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FFB9A2629536E00EEB7E2 /* GuidoTableViewCell.swift */; };
+		5A7FFB9D2629E75B00EEB7E2 /* GuidoTableViewCell1.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FFB9C2629E75B00EEB7E2 /* GuidoTableViewCell1.swift */; };
+		5A7FFB9F2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A7FFB9E2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift */; };
 		5AEBD0542628F4F300921B35 /* car_list.json in Resources */ = {isa = PBXBuildFile; fileRef = 5AEBD0532628F4F300921B35 /* car_list.json */; };
 		678C8EF116613E3D478D7F90 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C4872C2319CD609B8B0405F1 /* LaunchScreen.storyboard */; };
 		6F66D7FD55CE639A9F2AA803 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55EDB13A71CA814886E1F3AD /* Assets.xcassets */; };
@@ -50,6 +52,8 @@
 		5A0D41692627B823003FC0CF /* GuidomiaTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidomiaTests.swift; sourceTree = "<group>"; };
 		5A0D416B2627B823003FC0CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5A7FFB9A2629536E00EEB7E2 /* GuidoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidoTableViewCell.swift; sourceTree = "<group>"; };
+		5A7FFB9C2629E75B00EEB7E2 /* GuidoTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidoTableViewCell1.swift; sourceTree = "<group>"; };
+		5A7FFB9E2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidoTableViewCell2.swift; sourceTree = "<group>"; };
 		5AEBD0532628F4F300921B35 /* car_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car_list.json; sourceTree = "<group>"; };
 		84306E3F851F05E239AD4C78 /* Guidomia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidomia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -134,6 +138,8 @@
 			children = (
 				5A0D414A26279C04003FC0CF /* GuidomiaTableViewController.swift */,
 				5A7FFB9A2629536E00EEB7E2 /* GuidoTableViewCell.swift */,
+				5A7FFB9C2629E75B00EEB7E2 /* GuidoTableViewCell1.swift */,
+				5A7FFB9E2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +281,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5A7FFB9D2629E75B00EEB7E2 /* GuidoTableViewCell1.swift in Sources */,
+				5A7FFB9F2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift in Sources */,
 				5A0D414B26279C04003FC0CF /* GuidomiaTableViewController.swift in Sources */,
 				5A0D414D26279D15003FC0CF /* GuidomiaAppDelegate.swift in Sources */,
 				5A7FFB9B2629536E00EEB7E2 /* GuidoTableViewCell.swift in Sources */,
