@@ -80,36 +80,52 @@ class GuidomiaTableViewController: UITableViewController {
     override func viewDidLoad() {
         extractJsonInfo(fromFile: true)
         //readJsonFromTextFile()
-        tableView.estimatedRowHeight = 50.0
+        tableView.estimatedRowHeight = 150.0
         tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
-    
+ 
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return UITableView.automaticDimension
+        if indexPath.row == 0 {
+            return 280
+        }
+        else {
+            return 220 //UITableView.automaticDimension
+        }
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carlist.count + 10
+        return carlist.count + 2
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
-
-        if indexPath.row < carlist.count {
-            let car_cell = carlist[indexPath.row]
-            
-            cell.carbrand.text = car_cell.make + " " + car_cell.model
-            cell.carpicture?.image = UIImage(named: car_cell.model)
-            let customerprice=String(car_cell.customerPrice)
-
-            cell.customerprice.text = customerprice
+        if indexPath.row == 0 {
+            let cell1 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell1", for: indexPath) as! GuidoTableViewCell1
+             return cell1
         }
-        return cell
+        else if indexPath.row == 1 {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell2", for: indexPath) as! GuidoTableViewCell2
+             return cell2
+        }
+        else {
+            let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
+            if indexPath.row > 1 && indexPath.row < carlist.count + 2 {
+            
+                let current_idx=indexPath.row-2
+                let car_cell = carlist[current_idx]
+            
+                cell2.carbrand.text = car_cell.make + " " + car_cell.model
+                cell2.carpicture?.image = UIImage(named: car_cell.model)
+                let customerprice=String(car_cell.customerPrice)
+
+                cell2.customerprice.text = "$" + " " + customerprice
+            }
+            return cell2
+        }
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
