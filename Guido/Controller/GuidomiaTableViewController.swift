@@ -18,7 +18,7 @@ struct Car: Decodable
 }
 
 class GuidomiaTableViewController: UITableViewController {
-
+    
     var carlist: [Car] = []
 
     var jsonText = """
@@ -80,24 +80,35 @@ class GuidomiaTableViewController: UITableViewController {
     override func viewDidLoad() {
         extractJsonInfo(fromFile: true)
         //readJsonFromTextFile()
+        tableView.estimatedRowHeight = 50.0
+        tableView.rowHeight = UITableView.automaticDimension
     }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return UITableView.automaticDimension
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carlist.count
+        return carlist.count + 10
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath)
-
-        let car_cell = carlist[indexPath.row]
-        cell.textLabel?.text = car_cell.make
-        cell.detailTextLabel?.text = car_cell.model
-        cell.imageView?.image = UIImage(named: car_cell.model)
         
+        let cell = tableView.dequeueReusableCell(withIdentifier: "GuidomiaCell", for: indexPath) as! GuidoTableViewCell
+
+        if indexPath.row < carlist.count {
+            let car_cell = carlist[indexPath.row]
+            
+            cell.carbrand.text = car_cell.make + " " + car_cell.model
+            cell.carpicture?.image = UIImage(named: car_cell.model)
+            let customerprice=String(car_cell.customerPrice)
+
+            cell.customerprice.text = customerprice
+        }
         return cell
     }
 
