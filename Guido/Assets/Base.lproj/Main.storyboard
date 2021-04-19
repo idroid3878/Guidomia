@@ -320,6 +320,11 @@
                                     <outlet property="carpicture" destination="jpz-T0-h4G" id="qvz-gU-Zea"/>
                                     <outlet property="customerprice" destination="6Pt-zL-ct9" id="dTU-XQ-327"/>
                                     <outlet property="prosconsview" destination="Xcx-mS-4lc" id="YJW-nC-zDe"/>
+                                    <outlet property="star1" destination="ur0-Gx-RVq" id="7vv-y2-JgM"/>
+                                    <outlet property="star2" destination="dso-50-AQd" id="TGG-Ie-BqH"/>
+                                    <outlet property="star3" destination="ywM-FE-d5q" id="pbA-Qf-QGX"/>
+                                    <outlet property="star4" destination="ave-5l-8et" id="Pf4-vd-ac6"/>
+                                    <outlet property="star5" destination="R7P-2m-rnw" id="5i2-FT-UDr"/>
                                     <outlet property="tvcons" destination="F6X-zV-PZy" id="hDM-ER-Mla"/>
                                     <outlet property="tvpros" destination="35c-Gs-MWt" id="rNm-qa-bJz"/>
                                 </connections>
