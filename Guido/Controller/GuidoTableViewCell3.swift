@@ -7,10 +7,13 @@
 
 import UIKit
 
-class GuidoTableViewCell: UITableViewCell {
+class GuidoTableViewCell3: UITableViewCell {
     @IBOutlet weak var carbrand: UILabel!
     @IBOutlet weak var carpicture: UIImageView!
     @IBOutlet weak var customerprice: UILabel!
+    @IBOutlet weak var prosconsview: UIView!
+    @IBOutlet weak var tvpros: UITextView!
+    @IBOutlet weak var tvcons: UITextView!
     
     override func awakeFromNib() {
         super.awakeFromNib()
