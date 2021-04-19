@@ -10,6 +10,5 @@ class GuidoTableViewCell1: UITableViewCell, UITextFieldDelegate {
 
     override func prepareForReuse() {
         super.prepareForReuse()
-        
     }
 }
