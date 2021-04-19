@@ -109,17 +109,6 @@ class GuidomiaTableViewController: UITableViewController {
         print("myRightSideBarButtonItemTapped")
         self.performSegue(withIdentifier: "sequeToDetail", sender: self)
     }
-    
-    //func evenRow(_ row: Int ) -> Bool {
-    //    var rowiseven=true
-    //    if row % 2 == 0 {
-    //        print("\(row) is even number")
-    //    } else {
-    //        print("\(row) is odd number")
-    //        rowiseven=false
-    //    }
-    //    return rowiseven
-    //}
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -129,6 +118,18 @@ class GuidomiaTableViewController: UITableViewController {
         return carlist.count + 7 // some more rows to scroll with
     }
 
+    func starratingOff(_ stars:[UIImageView?] ) {
+        for i in 0..<5 {
+            stars[i]?.isHidden=true
+        }
+    }
+    
+    func starratingOn(_ stars:[UIImageView?],_ rating: Int ) {
+        for i in 0..<rating {
+            stars[i]?.isHidden=false
+        }
+    }
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         if indexPath.row == 0 {
@@ -142,34 +143,40 @@ class GuidomiaTableViewController: UITableViewController {
         else {
             
             if indexPath.row > 1 && indexPath.row < carlist.count {
-                let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell3", for: indexPath) as! GuidoTableViewCell3
+                let cell3 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell3", for: indexPath) as! GuidoTableViewCell3
                 let current_idx=indexPath.row
                 
                 let car_cell = carlist[current_idx]
+                let uivwarray=[cell3.star1,cell3.star2,cell3.star3,cell3.star4,cell3.star5]
+                starratingOff(uivwarray)
             
-                cell2.carbrand.text = car_cell.make + " " + car_cell.model
-                cell2.carpicture?.image = UIImage(named: car_cell.model)
+                cell3.carbrand.text = car_cell.make + " " + car_cell.model
+                cell3.carpicture?.image = UIImage(named: car_cell.model)
                 let customerprice=String(car_cell.customerPrice.roundedWithPrefix)
-
-                cell2.customerprice.text = "$" + customerprice
+                cell3.customerprice.text = "$" + customerprice
         
-                cell2.prosconsview.isHidden = true
+                cell3.prosconsview.isHidden = true
+                
+                starratingOn(uivwarray, car_cell.rating)
         
-                return cell2
+                return cell3
             }
             else {
-                let cell2 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell3", for: indexPath) as! GuidoTableViewCell3
+                let cell3 = tableView.dequeueReusableCell(withIdentifier: "GuidoCell3", for: indexPath) as! GuidoTableViewCell3
                 
-                cell2.carbrand.text = "Pontiac Fiero"
-                cell2.carpicture?.image = UIImage(named: "carpix")
-
-                cell2.customerprice.text = "$500"
+                let uivwarray=[cell3.star1,cell3.star2,cell3.star3,cell3.star4,cell3.star5]
+                starratingOff(uivwarray)
+                
+                cell3.carbrand.text = "Pontiac Fiero"
+                cell3.carpicture?.image = UIImage(named: "carpix")
+                cell3.customerprice.text = "$500"
+                
+                cell3.prosconsview.isHidden = true
+                
+                starratingOn(uivwarray, 1)
             
-                cell2.prosconsview.isHidden = true
-            
-                return cell2
+                return cell3
             }
-            
         }
     }
 
@@ -181,7 +188,7 @@ class GuidomiaTableViewController: UITableViewController {
     
    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        if indexPath.row == 0 {
-           return 280 //280
+           return 280
        }
        else if indexPath.row == 1 {
            return 220
@@ -226,7 +233,6 @@ class GuidomiaTableViewController: UITableViewController {
                 if indexPath.row > 1 && indexPath.row < carlist.count {
                     let car_cell = carlist[indexPath.row]
 
-                    
                     let prolist = car_cell.prosList
                     prolist.forEach { item in
                         if item != "" {
@@ -234,7 +240,6 @@ class GuidomiaTableViewController: UITableViewController {
                             pros_string.append( NSAttributedString(string: "  "+item+"\n"))
                             tvpros.attributedText = pros_string
                         } else {
-                            //print("pro_nil=\(item)")
                         }
                     }
                     
@@ -246,7 +251,6 @@ class GuidomiaTableViewController: UITableViewController {
                             cons_string.append( NSAttributedString(string: "  "+item+"\n") )
                             tvcons.attributedText = cons_string
                         } else {
-                            //print("cons_nil=\(item)")
                         }
                     }
                 }
