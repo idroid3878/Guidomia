@@ -106,7 +106,6 @@ class GuidomiaTableViewController: UITableViewController {
     
     @objc func myRightSideBarButtonItemTapped(_ sender: UIBarButtonItem!)
     {
-        print("myRightSideBarButtonItemTapped")
         self.performSegue(withIdentifier: "sequeToDetail", sender: self)
     }
 

@@ -57,6 +57,8 @@
 		5A7FFB9C2629E75B00EEB7E2 /* GuidoTableViewCell1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidoTableViewCell1.swift; sourceTree = "<group>"; };
 		5A7FFB9E2629EA4F00EEB7E2 /* GuidoTableViewCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuidoTableViewCell2.swift; sourceTree = "<group>"; };
 		5AEBD0532628F4F300921B35 /* car_list.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = car_list.json; sourceTree = "<group>"; };
+		5AF42000262F82F60051923E /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		5AF42001262F82F70051923E /* fr-CA */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "fr-CA"; path = "fr-CA.lproj/Main.strings"; sourceTree = "<group>"; };
 		84306E3F851F05E239AD4C78 /* Guidomia.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Guidomia.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -239,6 +241,7 @@
 				en,
 				Base,
 				fr,
+				"fr-CA",
 			);
 			mainGroup = 89F87A634A96548CB6E68FBA;
 			projectDirPath = "";
@@ -330,6 +333,7 @@
 			children = (
 				5A0D414F2627AF95003FC0CF /* Base */,
 				5A0D41542627B627003FC0CF /* fr */,
+				5AF42001262F82F70051923E /* fr-CA */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -339,6 +343,7 @@
 			children = (
 				5891387E91B5B8DB3897322B /* Base */,
 				5A0D41532627B627003FC0CF /* fr */,
+				5AF42000262F82F60051923E /* fr-CA */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
