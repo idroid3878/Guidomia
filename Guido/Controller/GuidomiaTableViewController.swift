@@ -19,6 +19,7 @@ struct Car: Decodable
 
 class GuidomiaTableViewController: UITableViewController {
     var selectedRowIndex = -1
+    var selectedRowExpandedAlready = false
     
     var carlist: [Car] = []
     
@@ -27,7 +28,6 @@ class GuidomiaTableViewController: UITableViewController {
     var jsonText = """
     [{"consList":["Bad direction"],"customerPrice":120000.0,"make":"Land Rover","marketPrice":125000.0,"model":"Range Rover","prosList":["You can go everywhere","Good sound system"],"rating":3},{"consList":["Sometime explode"],"customerPrice":220000.0,"make":"Alpine","marketPrice":225000.0,"model":"Roadster","prosList":["This car is so fast","Jame Bond would love to steal that car","",""],"rating":4},{"consList":["You can heard the engine over children cry at the back","","You may lose this one if you divorce"],"customerPrice":65000.0,"make":"BMW","marketPrice":55900.0,"model":"3300i","prosList":["Your average business man car","Can bring the family home safely","The city must have"],"rating":5},{"consList":["You may lose a wheel","Expensive maintenance"],"customerPrice":95000.0,"make":"Mercedes Benz","marketPrice":85900.0,"model":"GLE coupe","prosList":[],"rating":2}]
     """
-    
     func readJsonFromStringVar() {
         if let data = jsonText.data(using: .utf8) {
                 
@@ -115,7 +115,7 @@ class GuidomiaTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return carlist.count + 7 // some more rows to scroll with
+        return carlist.count + 7 // some more (7) rows to scroll with for fun
     }
 
     func starratingOff(_ stars:[UIImageView?] ) {
@@ -182,7 +182,6 @@ class GuidomiaTableViewController: UITableViewController {
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "sequeToDetail") {
-            print("")
         }
     }
     
@@ -195,7 +194,16 @@ class GuidomiaTableViewController: UITableViewController {
        }
        else {
             if indexPath.row == selectedRowIndex {
-                return 380
+                if selectedRowExpandedAlready == false {
+                    selectedRowExpandedAlready = true
+                    return 380
+                }
+                else {
+                    selectedRowExpandedAlready = false
+                    selectedRowIndex = -1
+                    self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
+                    return 180
+                }
             }
             else {
                 self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
@@ -263,6 +271,10 @@ class GuidomiaTableViewController: UITableViewController {
                     tvcons.attributedText = cons_string
                 }
 
+                self.tableView.beginUpdates() // update the height for all cells in table
+                self.tableView.endUpdates()
+            }
+            else {
                 self.tableView.beginUpdates() // update the height for all cells in table
                 self.tableView.endUpdates()
             }
