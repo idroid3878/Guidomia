@@ -24,7 +24,7 @@ class GuidomiaTableViewController: UITableViewController {
     var carlist: [Car] = []
     
     var useSequeForDetails: Bool = false
-
+    
     var jsonText = """
     [{"consList":["Bad direction"],"customerPrice":120000.0,"make":"Land Rover","marketPrice":125000.0,"model":"Range Rover","prosList":["You can go everywhere","Good sound system"],"rating":3},{"consList":["Sometime explode"],"customerPrice":220000.0,"make":"Alpine","marketPrice":225000.0,"model":"Roadster","prosList":["This car is so fast","Jame Bond would love to steal that car","",""],"rating":4},{"consList":["You can heard the engine over children cry at the back","","You may lose this one if you divorce"],"customerPrice":65000.0,"make":"BMW","marketPrice":55900.0,"model":"3300i","prosList":["Your average business man car","Can bring the family home safely","The city must have"],"rating":5},{"consList":["You may lose a wheel","Expensive maintenance"],"customerPrice":95000.0,"make":"Mercedes Benz","marketPrice":85900.0,"model":"GLE coupe","prosList":[],"rating":2}]
     """
@@ -184,7 +184,7 @@ class GuidomiaTableViewController: UITableViewController {
         }
     }
     
-   override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
        if indexPath.row == 0 {
            return 280
        }
@@ -193,23 +193,80 @@ class GuidomiaTableViewController: UITableViewController {
        }
        else {
             if indexPath.row == selectedRowIndex {
-                if selectedRowExpandedAlready == false {
-                    selectedRowExpandedAlready = true
-                    return 380
-                }
-                else {
+                if selectedRowExpandedAlready == true {
                     selectedRowExpandedAlready = false
                     selectedRowIndex = -1
                     self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
                     return 180
+                } else {
+                    selectedRowExpandedAlready = true
+                    return 380
                 }
             }
             else {
-                self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
+                if selectedRowExpandedAlready == true {
+                    self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
+                } else {
+                    self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = true
+                }
                return 180 //220
             }
            //return UITableView.automaticDimension
        }
+    }
+    
+    func cellSelectedWithInfo(_ indexPath: IndexPath ) {
+        let cell = self.tableView.cellForRow(at: indexPath)
+        
+        let pros_and_cons=cell?.viewWithTag(19)
+        let tvpros=pros_and_cons?.viewWithTag(20) as! UITextView
+        let tvcons=pros_and_cons?.viewWithTag(21) as! UITextView
+        let capheight=(tvpros.font?.capHeight ?? 7) // scale circle to height of text
+        let txtAttachment = NSTextAttachment()
+        let theimage=UIImage(named: "circle")!
+        txtAttachment.image = UIImage(named: "circle")!
+        txtAttachment.bounds = CGRect(x: 0, y: 0, width: theimage.size.width/7, height: theimage.size.height/capheight)
+        let strWithImage = NSAttributedString(attachment: txtAttachment)
+        let pros_string = NSMutableAttributedString(string: "")
+        let cons_string = NSMutableAttributedString(string: "")
+        tvpros.attributedText = pros_string // init
+        tvcons.attributedText = cons_string // init
+        
+        if indexPath.row > 1 && indexPath.row < carlist.count {
+            let car_cell = carlist[indexPath.row]
+
+            let prolist = car_cell.prosList
+            prolist.forEach { item in
+                if item != "" {
+                    pros_string.append( strWithImage )
+                    pros_string.append( NSAttributedString(string: "  "+item+"\n"))
+                    tvpros.attributedText = pros_string
+                } else {
+                }
+            }
+            
+            let conlist = car_cell.consList
+            conlist.forEach { item in
+                if item != "" {
+                    print("con=\(item)")
+                    cons_string.append( strWithImage )
+                    cons_string.append( NSAttributedString(string: "  "+item+"\n") )
+                    tvcons.attributedText = cons_string
+                } else {
+                }
+            }
+        }
+        else {
+            pros_string.append( strWithImage )
+            pros_string.append( NSAttributedString(string: "  Good on gas\n"))
+            tvpros.attributedText = pros_string
+            cons_string.append( strWithImage )
+            cons_string.append( NSAttributedString(string: "  Very bumpy ride\n") )
+            tvcons.attributedText = cons_string
+        }
+
+        tvpros.isUserInteractionEnabled = false
+        tvcons.isUserInteractionEnabled = false
     }
 
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -217,63 +274,22 @@ class GuidomiaTableViewController: UITableViewController {
             print("")
         }
         else {
-            if selectedRowIndex != indexPath.row {
-                self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = false
-                // store the currently clicked index
-                self.selectedRowIndex = indexPath.row
-                
-                let cell = self.tableView.cellForRow(at: indexPath)
-                let pros_and_cons=cell?.viewWithTag(19)
-                let tvpros=pros_and_cons?.viewWithTag(20) as! UITextView
-                let tvcons=pros_and_cons?.viewWithTag(21) as! UITextView
-                let capheight=(tvpros.font?.capHeight ?? 7) // scale circle to height of text
-                let txtAttachment = NSTextAttachment()
-                let theimage=UIImage(named: "circle")!
-                txtAttachment.image = UIImage(named: "circle")!
-                txtAttachment.bounds = CGRect(x: 0, y: 0, width: theimage.size.width/7, height: theimage.size.height/capheight)
-                let strWithImage = NSAttributedString(attachment: txtAttachment)
-                let pros_string = NSMutableAttributedString(string: "")
-                let cons_string = NSMutableAttributedString(string: "")
-                tvpros.attributedText = pros_string // init
-                tvcons.attributedText = cons_string // init
-                
-                if indexPath.row > 1 && indexPath.row < carlist.count {
-                    let car_cell = carlist[indexPath.row]
-
-                    let prolist = car_cell.prosList
-                    prolist.forEach { item in
-                        if item != "" {
-                            pros_string.append( strWithImage )
-                            pros_string.append( NSAttributedString(string: "  "+item+"\n"))
-                            tvpros.attributedText = pros_string
-                        } else {
-                        }
-                    }
-                    
-                    let conlist = car_cell.consList
-                    conlist.forEach { item in
-                        if item != "" {
-                            print("con=\(item)")
-                            cons_string.append( strWithImage )
-                            cons_string.append( NSAttributedString(string: "  "+item+"\n") )
-                            tvcons.attributedText = cons_string
-                        } else {
-                        }
-                    }
+            if selectedRowExpandedAlready == false {
+                if selectedRowIndex != indexPath.row {
+                    self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = false
+                    self.selectedRowIndex = indexPath.row
+                    cellSelectedWithInfo( indexPath )
                 }
-                else {
-                    pros_string.append( strWithImage )
-                    pros_string.append( NSAttributedString(string: "  Good on gas\n"))
-                    tvpros.attributedText = pros_string
-                    cons_string.append( strWithImage )
-                    cons_string.append( NSAttributedString(string: "  Very bumpy ride\n") )
-                    tvcons.attributedText = cons_string
-                }
-
                 self.tableView.beginUpdates() // update the height for all cells in table
                 self.tableView.endUpdates()
             }
-            else {
+            else { // selectedRowExpandedAlready == true
+                if selectedRowIndex != indexPath.row {
+                    self.tableView.cellForRow(at: indexPath)?.contentView.viewWithTag(19)?.isHidden = false
+                    self.selectedRowIndex = indexPath.row
+                    selectedRowExpandedAlready = false
+                    cellSelectedWithInfo( indexPath )
+                 }
                 self.tableView.beginUpdates() // update the height for all cells in table
                 self.tableView.endUpdates()
             }
